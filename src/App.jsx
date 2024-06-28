@@ -1,46 +1,35 @@
-import styled from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
-import Button from "./ui/Button";
-import Input from "./ui/Input";
-import Heading from "./ui/Heading";
-import Row from "./ui/Row";
-// retuning a react component
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Bookings from "./pages/Bookings";
+import Cabins from "./pages/Cabins";
+import NewUsers from "./pages/Users";
+import Settings from "./pages/Settings";
+import Account from "./pages/Account";
+import Login from "./pages/Login";
+import PageNotFound from "./pages/PageNotFound";
+import AppLayout from "./ui/AppLayout";
 
-// as a convention we name the parent styling for the app as StyledApp
-// we can keep this here because we don't need it anywhere else
-const StyledApp = styled.main`
-  /* background-color: orange; */
-  padding: 20px;
-`;
 const App = () => {
   return (
     <>
       <GlobalStyles />
-      <StyledApp>
-        <Row>
-          <Row type="horizontal">
-            <Heading as="h1">The Wild Oasis</Heading>
-            <div>
-              <Heading as="h2">Check in and out</Heading>
-              <Button onClick={() => alert("Check in!")}>Check in</Button>
-              <Button
-                variation="secondary"
-                size="small"
-                onClick={() => alert("Check Out!")}
-              >
-                Check out
-              </Button>
-            </div>
-          </Row>
-          <Row>
-            <Heading as="h3">Form</Heading>
-            <form>
-              <Input type="number" placeholder="Number of guests..." />
-              <Input type="number" placeholder="Number of guests..." />
-            </form>
-          </Row>
-        </Row>
-      </StyledApp>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="dashboard" />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="bookings" element={<Bookings />} />
+            <Route path="cabins" element={<Cabins />} />
+            <Route path="users" element={<NewUsers />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="account" element={<Account />} />
+          </Route>
+          {/* we don't these the two below in the app layout */}
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
