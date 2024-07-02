@@ -9,7 +9,7 @@
 - JAVASCRIPT
 - REACTJS
 - React Router
--
+- React Icons
 -
 - NPM
 -

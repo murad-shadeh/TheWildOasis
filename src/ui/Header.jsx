@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
   border-bottom: 1px solid var(--color-grey-100);
 `;
 const Header = () => {
-  return <StyledHeader>StyledHeader</StyledHeader>;
+  return <StyledHeader>Header</StyledHeader>;
 };
 
 export default Header;
