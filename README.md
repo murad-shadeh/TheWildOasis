@@ -10,7 +10,7 @@
 - REACTJS
 - React Router
 - React Icons
--
+- Supabase
 - NPM
 -
 - GIT
