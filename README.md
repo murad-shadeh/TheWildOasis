@@ -10,9 +10,9 @@
 - REACTJS
 - React Router
 - React Icons
+- React Query
 - Supabase
 - NPM
--
 - GIT
 - GITHUB
 - VSCODE
